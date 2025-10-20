@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Universitas Pamulang - Versi Modern</title>
+  <style>
+    :root {
+      --primary: #0b2a53;
+      --accent: #ffb703;
+      --text-light: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, var(--primary) 70%, #133c70);
+      color: var(--text-light);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .sidebar h2 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .menu a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-light);
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      margin: 4px 0;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .menu a:hover, .menu a.active {
+      background: var(--accent);
+      color: #002147;
+    }
+
+    /* Main content */
+    .content {
+      flex: 1;
+      padding: 32px;
+      overflow-y: auto;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2, h3 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 800px) {
+      body { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; justify-content: center; }
+      .menu { display: flex; gap: 8px; }
+      .menu a { padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>UNPAM</h2>
+    <nav class="menu">
+      <a href="#" class="active" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('profil')">Profil</a>
+      <a href="#" onclick="showPage('galeri')">Galeri</a>
+      <a href="#" onclick="showPage('kontak')">Kontak</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <!-- Home -->
+    <section id="home" class="card page">
+      <h1>Programming Web dengan HTML</h1>
+      <h2>Teknologi Informatika</h2>
+      <hr />
+      <p>Selamat datang pada halaman website kami. Silakan Anda mencari informasi di website ini, semoga Anda mendapatkan tambahan wawasan dan pengetahuan.</p>
+      <p>Pada halaman ini akan membahas seputar script HTML dan cara mempercantik tampilan web dengan menggunakan CSS (Cascading Style Sheet).</p>
+    </section>
+
+    <!-- Profil -->
+    <section id="profil" class="card page" style="display:none">
+      <h1>Profil</h1>
+      <p><b>Pengalaman adalah ilmu yang paling berharga yang dapat kita peroleh di mana saja, kapan saja, dan tidak harus duduk di bangku sekolah resmi.</b></p>
+      <p>Belajar dari pengalaman membuat seseorang menjadi lebih berhati-hati dalam segala tindakan atau dalam mengambil keputusan.</p>
+      <p><i>Hari ini saya mempunyai pengalaman belajar membuat web. Belajar web tidaklah sulit — yang penting harus berlatih terus.</i></p>
+      <center><img src="image.png" alt="gambar profil" /></center>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri" class="card page" style="display:none">
+      <h1>Galeri</h1>
+      <img src="image.png" alt="Galeri UNPAM" />
+      <p>Beberapa hasil karya dan dokumentasi kegiatan Universitas Pamulang.</p>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="card page" style="display:none">
+      <h1>Kontak</h1>
+      <p><b>Universitas Pamulang</b><br />
+      Jl. Surya Kencana No.1 Pamulang – Tangerang Selatan<br />
+      Website: <a href="https://www.unpam.ac.id" target="_blank" style="color:var(--accent)">www.unpam.ac.id</a><br />
+      Email: info@unpam.ac.id<br />
+      Telp: 021 - 7412566<br />
+      Fax: 021 - 7412566</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      Copyright © Dyozan — Universitas Pamulang Tangerang
+    </footer>
+  </main>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById(pageId).style.display = 'block';
+      document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
